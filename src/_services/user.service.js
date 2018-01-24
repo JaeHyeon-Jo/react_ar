@@ -17,7 +17,7 @@ function login(username, password) {
         body: JSON.stringify({ username, password })
     };
 
-    return fetch('/users/authenticate', requestOptions)
+    return fetch('http://45.32.10.63:8000/accounts/login/', requestOptions)
         .then(response => {
             if (!response.ok) { 
                 return Promise.reject(response.statusText);
@@ -47,7 +47,7 @@ function getAll() {
         headers: authHeader()
     };
 
-    return fetch('/users', requestOptions).then(handleResponse);
+    return fetch('http://45.32.10.63:8000/accounts/user/', requestOptions).then(handleResponse);
 }
 
 function getById(id) {
@@ -66,7 +66,7 @@ function register(user) {
         body: JSON.stringify(user)
     };
 
-    return fetch('/users/register', requestOptions).then(handleResponse);
+    return fetch('http://45.32.10.63:8000/accounts/user/', requestOptions).then(handleResponse);
 }
 
 function update(user) {
