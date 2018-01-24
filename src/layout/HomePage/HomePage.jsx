@@ -36,7 +36,7 @@ class HomePage extends React.Component {
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <li><a href="#"><button type="button" class="btn btn-primary"  style={{marginRight : "10px"}}>MyPage</button></a></li>
+                    <li><a href="#"><button type="button" class="btn btn-primary"  style={{marginRight : "10px"}}>Hi {user.username}!</button></a></li>
                     <li><Link to="/login"><button type="button" class="btn btn-primary">Logout</button></Link></li>
                 </ul>                
             </nav>
