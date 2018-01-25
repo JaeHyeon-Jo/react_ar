@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { userActions } from '../../_actions';
+import { Header } from '../../components/header/index';
 
 class RegisterPage extends React.Component {
     constructor(props) {
@@ -47,7 +48,9 @@ class RegisterPage extends React.Component {
         const { registering  } = this.props;
         const { user, submitted } = this.state;
         return (
-            <div className="col-md-6 col-md-offset-3">
+            <div>
+                <Header/>
+            <div className="col-md-6 offset-md-3" style={{ marginTop : "100px"}}>
                 <div className="container">
                     <div className="col-sm-8 col-sm-offset-2">
                         <h2>Register</h2>
@@ -83,6 +86,7 @@ class RegisterPage extends React.Component {
                         </form>
                     </div>
                 </div>
+            </div>
             </div>
         );
     }

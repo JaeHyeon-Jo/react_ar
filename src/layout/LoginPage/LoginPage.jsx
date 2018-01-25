@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { userActions } from '../../_actions';
+import { Header } from '../../components/header/index';
 
 class LoginPage extends React.Component {
     constructor(props) {
@@ -41,7 +42,9 @@ class LoginPage extends React.Component {
         const { loggingIn } = this.props;
         const { username, password, submitted } = this.state;
         return (
-            <div className="col-md-6 col-md-offset-3">
+            <div>
+                <Header/>
+            <div className="col-md-6 offset-md-3" style={{ marginTop : "100px"}}>
                 <div className="container">
                     <div className="col-sm-8 col-sm-offset-2">
                         <h2>Login</h2>
@@ -70,6 +73,7 @@ class LoginPage extends React.Component {
                         </form>
                     </div>
                 </div>
+            </div>
             </div>
         );
     }

@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { PrivateRoute } from '../../_components';
 
 import { userActions } from '../../_actions';
 
 import logo from "../../resource/logo_only.png"
-import './HomePage.css';
+import {wow} from '../../components/wow'
+
 
 class HomePage extends React.Component {
     componentDidMount() {
@@ -19,29 +21,47 @@ class HomePage extends React.Component {
     render() {
         const { user, users } = this.props;
         return (
+            <div>
             <nav className="navbar navbar-expand-sm fixed-top navbar-light bg-faded" style={{backgroundColor : "whitesmoke"}} >
-                <a className="navbar-brand" href="#">
+                <div className="navbar-brand"><Link to="/home">
                     <img src={logo} alt="Logo" style={{width : '3em', marginRight : "10px"}} />
                     ARBITEE
-                </a>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">Link 1</a>
+                </Link>
+                </div>
+                <ul className="navbar-nav">
+                    <li className="nav-item">
+                    <div className="nav-link"><Link to="/home/wow">wow</Link></div>
                     </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">Link 2</a>
+                    <li className="nav-item">
+                    <div className="nav-link"><Link to="/home/redux">Redux</Link></div>
                     </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">Link 3</a>
+                    <li className="nav-item">
+                    <div className="nav-link"><Link to="/home/relay">Relay</Link></div>
                     </li>
                 </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li><a href="#"><button type="button" class="btn btn-primary"  style={{marginRight : "10px"}}>Hi {user.username}!</button></a></li>
-                    <li><Link to="/login"><button type="button" class="btn btn-primary">Logout</button></Link></li>
-                </ul>                
+                <ul className="navbar-nav ml-auto">
+                    <li><a href="#"><button type="button" className="btn btn-primary"  style={{marginRight : "10px"}}>Hi {user.username}!</button></a></li>
+                    <li><Link to="/login"><button type="button" className="btn btn-primary">Logout</button></Link></li>
+                </ul>           
             </nav>
+            <div style={{ marginTop : "100px"}}>
+            <Switch>
+                <Route path="/home/wow" component={wow} />
+                <Route component={hello} />
+            </Switch>
+            </div>            
+
+            </div>
         );
     }
+}
+
+const hello = () => {
+    return(
+      <h2>
+        hello
+      </h2>
+    )
 }
 
 function mapStateToProps(state) {
@@ -59,12 +79,12 @@ export { connectedHomePage as HomePage };
 
 
 // import React from 'react';
-// import { Link, NavLink } from 'react-router-dom';
+// import { Link, NavLink, Route, Switch } from 'react-router-dom';
 // import { connect } from 'react-redux';
 
 // import { userActions } from '../../_actions';
 
-// import logo from "../../resource/logo.png"
+// import logo from "../../resource/logo_only.png"
 // import './HomePage.css';
 
 // class HomePage extends React.Component {
@@ -79,43 +99,62 @@ export { connectedHomePage as HomePage };
 //     render() {
 //         const { user, users } = this.props;
 //         return (
-//             // <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-//                 <div className="col-md-6 col-md-offset-3">
-//                     <h1>Hi {user.username}!</h1>
-//                     <p>You're logged in with React!!</p>
-//                     <h3>All registered users:</h3>
-//                     {users.loading && <em>Loading users...</em>}
-//                     {users.error && <span className="text-danger">ERROR: {users.error}</span>}
-//                     {users.items &&
-//                         <ul>
-//                             {users.items.results.map((user, index) =>
-//                                 <li key={index}>
-//                                     {users.items.results[index].username}
-//                                     {
-//                                         user.deleting ? <em> - Deleting...</em>
-//                                         : user.deleteError ? <span className="text-danger"> - ERROR: {user.deleteError}</span>
-//                                         : <span> - <a onClick={this.handleDeleteUser(user.id)}>Delete</a></span>
-//                                     }
-//                                 </li>
-//                             )}
-//                         </ul>
-//                     }
-//                     <p>
-//                         <Link to="/login"><button type="button" class="btn btn-primary">Logout</button></Link>
-//                     </p>
-//                     <img  src={logo} />
-//                     <div className="header">
-//                         <NavLink exact to="/" className="item" activeClassName="active">Home</NavLink>
-//                         <NavLink to="/about/FineApple" className="item" activeClassName="active">About</NavLink>
-//                         <NavLink to="/posts" className="item" activeClassName="active">Post</NavLink>
-//                         <NavLink to="/login" className="item" activeClassName="active">Login</NavLink>
-//                         <NavLink to="/mypage" className="item" activeClassName="active">MyPage</NavLink>
-//                         <NavLink to="/search" className="item" activeClassName="active">Search</NavLink>
-//                     </div>
-//                 </div>
-//             // </nav>
+//             <div>
+//             <nav className="navbar navbar-expand-sm fixed-top navbar-light bg-faded" style={{backgroundColor : "whitesmoke"}} >
+//                 <a className="navbar-brand" href="#">
+//                     <img src={logo} alt="Logo" style={{width : '3em', marginRight : "10px"}} />
+//                     ARBITEE
+//                 </a>
+//                 <ul className="navbar-nav">
+//                     <li className="nav-item">
+//                     <div className="nav-link"><Link to="/home/wow">wow</Link></div>
+//                     </li>
+//                     <li className="nav-item">
+//                     <div className="nav-link"><Link to="/home/redux">Redux</Link></div>
+//                     </li>
+//                     <li className="nav-item">
+//                     <div className="nav-link"><Link to="/home/relay">Relay</Link></div>
+//                     </li>
+//                 </ul>
+//                 <ul className="navbar-nav ml-auto">
+//                     <li><a href="#"><button type="button" className="btn btn-primary"  style={{marginRight : "10px"}}>Hi {user.username}!</button></a></li>
+//                     <li><Link to="/login"><button type="button" className="btn btn-primary">Logout</button></Link></li>
+//                 </ul>
+                               
+//             </nav>
+//             <div style={{ marginTop : "100px"}}>
+//                 <Switch>
+//                     <Route path="/home/wow" component={wow} />
+//                     <Route component={hello} />
+//                 </Switch>
+//             </div>
+//             </div>
 //         );
 //     }
+// }
+
+// const Post = ({match}) => {
+//     return(
+//       <h2>
+//         {match.params.title}
+//       </h2>
+//     )
+// }
+
+// const hello = () => {
+//     return(
+//       <h2>
+//         hello
+//       </h2>
+//     )
+// }
+
+// const wow = () => {
+//     return(
+//       <h2>
+//         wow
+//       </h2>
+//     )
 // }
 
 // function mapStateToProps(state) {

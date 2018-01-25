@@ -2361,6 +2361,10 @@ he@1.1.x:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/he/-/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
 
+highcharts@^6.0.4:
+  version "6.0.4"
+  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-6.0.4.tgz#bb6956de2fbe24fa4b6141be7ceadc052ca2abf9"
+
 history@^4.6.3, history@^4.7.2:
   version "4.7.2"
   resolved "https://registry.yarnpkg.com/history/-/history-4.7.2.tgz#22b5c7f31633c5b8021c7f4a8a954ac139ee8d5b"
@@ -4075,6 +4079,12 @@ react-dom@^16.0.0:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.0"
+
+react-highcharts@^16.0.1:
+  version "16.0.1"
+  resolved "https://registry.yarnpkg.com/react-highcharts/-/react-highcharts-16.0.1.tgz#38d015d8ba5f562a7589679bc48441d6b1ad1c49"
+  dependencies:
+    highcharts "^6.0.4"
 
 react-redux@^5.0.5:
   version "5.0.6"

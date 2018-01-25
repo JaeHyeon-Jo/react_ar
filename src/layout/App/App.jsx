@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { history } from '../../_helpers';
@@ -8,6 +8,8 @@ import { PrivateRoute } from '../../_components';
 import { HomePage } from '../HomePage';
 import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
+import { IndexPage } from '../IndexPage';
+
 
 class App extends React.Component {
     constructor(props) {
@@ -29,14 +31,25 @@ class App extends React.Component {
                 }
                 <Router history={history}>
                     <div>
-                        <PrivateRoute exact path="/" component={HomePage} />
-                        <Route path="/login" component={LoginPage} />
-                        <Route path="/register" component={RegisterPage} />
+                        <Switch>
+                            <PrivateRoute path="/home" component={HomePage} />
+                            <Route path="/login" component={LoginPage} />
+                            <Route path="/register" component={RegisterPage} />
+                            <Route component={IndexPage} />
+                        </Switch>
                     </div>
                 </Router>
             </div>
         );
     }
+}
+
+const hello = () => {
+    return(
+      <h2>
+        hello
+      </h2>
+    )
 }
 
 function mapStateToProps(state) {
