@@ -9,6 +9,7 @@ import { HomePage } from '../HomePage';
 import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
 import { IndexPage } from '../IndexPage';
+import { FundSimple } from '../FundSimple'
 
 
 class App extends React.Component {
@@ -35,6 +36,7 @@ class App extends React.Component {
                             <PrivateRoute path="/home" component={HomePage} />
                             <Route path="/login" component={LoginPage} />
                             <Route path="/register" component={RegisterPage} />
+                            <Route path="/FundSimple" component={FundSimple} />
                             <Route component={IndexPage} />
                         </Switch>
                     </div>

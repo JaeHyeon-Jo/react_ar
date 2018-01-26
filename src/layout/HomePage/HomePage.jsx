@@ -6,6 +6,8 @@ import { userActions } from '../../_actions';
 import logo from '../../resource/logo_only.png';
 import {wow} from '../../components/wow';
 import {MyPage} from '../MyPage';
+import {EditMyPage} from '../EditMyPage';
+import { HomeIndex } from '../../components/HomeIndex/index';
 
 
 class HomePage extends React.Component {
@@ -13,37 +15,37 @@ class HomePage extends React.Component {
         this.props.dispatch(userActions.getAll());
     }
 
-    // handleDeleteUser(id) {
-    //     return (e) => this.props.dispatch(userActions.delete(id));
-    // }
+    handleDeleteUser(id) {
+        return (e) => this.props.dispatch(userActions.delete(id));
+    }
 
     render() {
         const { user, users } = this.props;
         return (
             <div>
             <nav className="navbar navbar-expand-sm fixed-top navbar-light bg-faded" style={{backgroundColor : "whitesmoke"}} >
-                <div className="navbar-brand"><Link to="/home">
+                <div className="navbar-brand" style={{fontFamily : 'Courier New'}} ><Link to="/home" style={{textDecoration : 'none', color : 'black'}} >
                     <img src={logo} alt="Logo" style={{width : '3em', marginRight : "10px"}} />
-                    ARBITEE
+                    ARBITER
                 </Link>
                 </div>
                 <ul className="navbar-nav">
                     <li className="nav-item">
                         <div className="nav-link"><Link to="/home/wow">
                             <button type="button" className="btn btn-outline-secondary">
-                            Wow</button></Link>
+                            Account</button></Link>
                         </div>
                     </li>
                     <li className="nav-item">
                         <div className="nav-link"><Link to="/home/redux">
                             <button type="button" className="btn btn-outline-secondary">
-                            Yes</button></Link>
+                            Fund</button></Link>
                         </div>
                     </li>
                     <li className="nav-item">
                         <div className="nav-link"><Link to="/home/relay">
                             <button type="button" className="btn btn-outline-secondary">
-                            Relay</button></Link>
+                            About</button></Link>
                         </div>
                     </li>
                 </ul>
@@ -56,21 +58,14 @@ class HomePage extends React.Component {
             <Switch>
                 <Route path="/home/wow" component={wow} />
                 <Route path="/home/MyPage" component={MyPage} />
-                <Route component={hello} />
+                <Route path="/home/EditMyPage" component={EditMyPage} />
+                <Route component={HomeIndex} />
             </Switch>
             </div>            
 
             </div>
         );
     }
-}
-
-const hello = () => {
-    return(
-      <h2>
-        hello
-      </h2>
-    )
 }
 
 function mapStateToProps(state) {

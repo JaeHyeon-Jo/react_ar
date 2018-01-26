@@ -4,9 +4,9 @@ import logo from '../../resource/logo_only.png'
 
 const Header = () => (
     <nav className="navbar navbar-expand-sm fixed-top navbar-light bg-faded" style={{backgroundColor : "whitesmoke"}} >
-        <div className="navbar-brand"><Link to="/">
-            <img src={logo} alt="Logo" style={{width : '3em', marginRight : "10px"}} />
-                ARBITEE
+        <div className="navbar-brand" style={{fontFamily : 'Courier New'}} ><Link to="/" style={{textDecoration : 'none', color : 'black'}} >
+            <img src={logo} alt="Logo" style={{width : '3em', marginRight : "10px" }} />
+                ARBITER
             </Link>
         </div>
         <ul className="navbar-nav ml-auto">

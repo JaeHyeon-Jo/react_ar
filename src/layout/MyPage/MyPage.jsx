@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 import { userActions } from '../../_actions';
+import { MyPageChart } from '../../components/Charts/MyPageChart/index';
 
 class MyPage extends React.Component {
 
@@ -13,6 +16,10 @@ class MyPage extends React.Component {
     return (
       <div>
         <h1>hello {user.username}!</h1>
+        <Link to='/home/EditMyPage'>
+          <button type="button" class="btn btn-primary btn-lg">Edit</button>
+        </Link>
+        <MyPageChart/>
       </div>
     );
   }
