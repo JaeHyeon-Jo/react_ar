@@ -1,10 +1,16 @@
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
+
+const PATHS = {
+    src: path.join(__dirname, 'src'),    // 소스 파일은 src 폴더에 
+    build: path.join(__dirname, 'build') // 변환 후 파일은 build 폴더에 
+};
+
 module.exports = {
-    entry: './src/index.jsx',
+    entry: PATHS.src,
     output: {
-        path: path.resolve('dist'),
+        path: PATHS.build,
         filename: 'bundle.js'
     },
     resolve: {

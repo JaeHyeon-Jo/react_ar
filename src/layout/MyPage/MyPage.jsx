@@ -17,7 +17,7 @@ class MyPage extends React.Component {
       <div>
         <h1>hello {user.username}!</h1>
         <Link to='/home/EditMyPage'>
-          <button type="button" class="btn btn-primary btn-lg">Edit</button>
+          <button type="button" className="btn btn-primary btn-lg">Edit</button>
         </Link>
         <MyPageChart/>
       </div>
